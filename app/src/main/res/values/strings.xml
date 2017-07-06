@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">InstagramClone</string>
+    <string name="username">uri.frischman</string>
+
+    <!--Snippet: Top Profile-->
+    <string name="posts">Posts</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="edit_your_profile">Edit your profile</string>
 </resources>
