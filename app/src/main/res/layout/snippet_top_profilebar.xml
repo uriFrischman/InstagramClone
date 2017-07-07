@@ -16,14 +16,14 @@
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:id="@+id/profileName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="uri.frischman"
-                    android:textSize="20sp"
-                    android:textColor="@color/black"
                     android:layout_marginStart="15dp"
-                    android:id="@+id/profileName"/>
+                    android:text="@string/username"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
 
             </RelativeLayout>
 
