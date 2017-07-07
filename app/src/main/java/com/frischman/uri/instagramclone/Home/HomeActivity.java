@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.frischman.uri.instagramclone.R;
 import com.frischman.uri.instagramclone.Utils.BottonNavigationViewHelper;
+import com.frischman.uri.instagramclone.Utils.SectionsPagerAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 

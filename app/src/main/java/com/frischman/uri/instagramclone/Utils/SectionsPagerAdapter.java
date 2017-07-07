@@ -1,4 +1,4 @@
-package com.frischman.uri.instagramclone.Home;
+package com.frischman.uri.instagramclone.Utils;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
