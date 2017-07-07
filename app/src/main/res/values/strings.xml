@@ -8,5 +8,11 @@
     <string name="following">Following</string>
     <string name="edit_your_profile">Edit your profile</string>
     <string name="options">Options</string>
+
+
+
+    <!--Account Settings-->
     <string name="account_settings">Account Settings</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">Logout</string>
 </resources>
