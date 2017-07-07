@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.frischman.uri.instagramclone.R;
 import com.frischman.uri.instagramclone.Utils.BottonNavigationViewHelper;
+import com.frischman.uri.instagramclone.Utils.SectionsPagerAdapter;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 
@@ -45,8 +46,8 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_name);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_arrow);
     }
-    
-    
+
+
     // BottomNavigationView Setup
     private void setupBottomNavigationView() {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
