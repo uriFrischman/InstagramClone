@@ -22,7 +22,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 public class BottonNavigationViewHelper {
 
     private static final String TAG = "BottonNavigationViewHel";
-    
+
     public static void setupBottomNavigationView(BottomNavigationViewEx bottomNavigationViewEx) {
         Log.d(TAG, "setupBottomNavigationView: Setting up NavigagtionView");
         bottomNavigationViewEx.enableAnimation(false);

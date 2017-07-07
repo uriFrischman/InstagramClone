@@ -49,10 +49,6 @@ public class AccountSettingsActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.container);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relLayout1);
-
-
-
-
     }
 
 
@@ -78,7 +74,6 @@ public class AccountSettingsActivity extends AppCompatActivity {
         mSectionsStatePagerAdapter = new SectionsStatePagerAdapter(getSupportFragmentManager());
         mSectionsStatePagerAdapter.addFragment(new EditProfileFragment(), getString(R.string.edit_your_profile));
         mSectionsStatePagerAdapter.addFragment(new LogoutFragment(), getString(R.string.logout));
-
     }
 
     private void setupViewPager(int fragmentNumber) {
