@@ -44,6 +44,7 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_name);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_arrow);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_house);
     }
     
     
