@@ -24,6 +24,15 @@
                     android:text="@string/username"
                     android:textColor="@color/black"
                     android:textSize="20sp"/>
+                
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="20dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/profileMenu"
+                    android:src="@drawable/ic_more_vert"/>
 
             </RelativeLayout>
 

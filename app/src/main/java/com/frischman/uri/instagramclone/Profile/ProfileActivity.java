@@ -30,7 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Log.d(TAG, "onCreate: srarts.");
 
-        setupBottomNavigationView();
+//        setupBottomNavigationView();
         setupToolbar();
     }
 
