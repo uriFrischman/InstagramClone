@@ -7,4 +7,6 @@
     <string name="followers">Followers</string>
     <string name="following">Following</string>
     <string name="edit_your_profile">Edit your profile</string>
+    <string name="options">Options</string>
+    <string name="account_settings">Account Settings</string>
 </resources>

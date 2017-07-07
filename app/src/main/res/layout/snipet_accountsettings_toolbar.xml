@@ -15,24 +15,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <ImageView
+                    android:id="@+id/backArrow"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+
+                    android:src="@drawable/ic_back_arrow"/>
+
                 <TextView
                     android:id="@+id/profileName"
+                    android:layout_toRightOf="@+id/backArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="15dp"
-                    android:text="@string/username"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/options"
                     android:textColor="@color/black"
                     android:textSize="20sp"/>
 
-                <ImageView
-                    android:id="@+id/profileMenu"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="20dp"
-                    android:src="@drawable/ic_more_vert"/>
+
 
             </RelativeLayout>
 
