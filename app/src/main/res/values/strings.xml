@@ -14,4 +14,6 @@
     <string name="account_settings">Account Settings</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="logout">Logout</string>
+    <string name="change_photo">Change Photo</string>
+    <string name="private_information">Private Information</string>
 </resources>
