@@ -8,8 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.frischman.uri.instagramclone.R;
+import com.frischman.uri.instagramclone.Utils.UniversalImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
@@ -24,6 +27,7 @@ public class EditProfileFragment extends Fragment {
     private LinearLayoutManager mLinearLayoutManager;
     private RecyclerAdapter mPublicRecyclerAdapter;
     private RecyclerAdapter mPrivateRecyclerAdapter;
+    private ImageView mProfilePhoto;
 
 
     @Nullable
@@ -31,11 +35,10 @@ public class EditProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_editprofile, container, false);
 
+        mProfilePhoto = (ImageView) view.findViewById(R.id.profile_image);
+
         mPublicInformationRecyclerView = (RecyclerView) view.findViewById(R.id.edit_profile_recycler_view);
         mPrivateInformationRecyclerView = (RecyclerView) view.findViewById(R.id.private_information_recycler_view);
-
-//        mPublicLinearLayoutManager = new LinearLayoutManager(getContext());
-
 
         mPublicInformationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mPrivateInformationRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -58,7 +61,20 @@ public class EditProfileFragment extends Fragment {
         mPublicInformationRecyclerView.setAdapter(mPublicRecyclerAdapter);
         mPrivateInformationRecyclerView.setAdapter(mPrivateRecyclerAdapter);
 
+        initImageLoader();
+        setProfileImage();
 
         return view;
+    }
+
+    private void initImageLoader() {
+        UniversalImageLoader imageLoader = new UniversalImageLoader(getActivity());
+        ImageLoader.getInstance().init(imageLoader.getConfig());
+    }
+
+    private void setProfileImage() {
+        String imgUrl = "http://bbsimg.res.flymeos.com/forum/201512/11/111355ylll9m5prjm99lmw.png";
+        UniversalImageLoader.setImage(imgUrl, mProfilePhoto, null, "");
+
     }
 }
