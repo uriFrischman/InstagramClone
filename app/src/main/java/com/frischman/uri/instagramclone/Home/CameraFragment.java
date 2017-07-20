@@ -9,10 +9,6 @@ import android.view.ViewGroup;
 
 import com.frischman.uri.instagramclone.R;
 
-/**
- * Created by Uri on 2017-06-05.
- */
-
 public class CameraFragment extends Fragment {
     private static final String TAG = "CameraFragment";
 

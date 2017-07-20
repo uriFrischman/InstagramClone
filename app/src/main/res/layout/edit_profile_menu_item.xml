@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_profile_item"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@drawable/grey_border_bottom">
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_alert"
+        android:id="@+id/item_icon"/>
+
+    <EditText
+        android:id="@+id/item_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:background="@null"
+        android:inputType="textNoSuggestions"
+        />
+
+
+</RelativeLayout>

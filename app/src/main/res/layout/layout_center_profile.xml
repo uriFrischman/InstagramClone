@@ -109,7 +109,8 @@
                 android:verticalSpacing="1dp"
                 android:horizontalSpacing="1dp"
                 android:stretchMode="columnWidth"
-                android:gravity="center">
+                android:gravity="center"
+                android:scrollbars="vertical">
 
             </GridView>
 

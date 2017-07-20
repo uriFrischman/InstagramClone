@@ -9,10 +9,6 @@ import android.view.ViewGroup;
 
 import com.frischman.uri.instagramclone.R;
 
-/**
- * Created by Uri on 2017-07-07.
- */
-
 public class LogoutFragment extends Fragment {
 
     @Nullable
