@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.util.Log;
+import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -14,17 +15,22 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.frischman.uri.instagramclone.R;
+import com.frischman.uri.instagramclone.Utils.BottonNavigationViewHelper;
 import com.frischman.uri.instagramclone.Utils.SectionsStatePagerAdapter;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
 
 public class AccountSettingsActivity extends AppCompatActivity {
 
+    private static final String TAG = "AccountSettingsActivity";
     private ImageView mBackButton;
     private Context mContext = AccountSettingsActivity.this;
     private SectionsStatePagerAdapter mSectionsStatePagerAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;
+
+    private final int ACTIVITY_NUM = 4;
 
 
     @Override
@@ -33,6 +39,7 @@ public class AccountSettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_accountsettings);
         setupSettingsList();
         setupFragments();
+        setupBottomNavigationView();
 
         mBackButton = (ImageView) findViewById(R.id.backArrow);
         mBackButton.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +53,6 @@ public class AccountSettingsActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.relLayout1);
     }
-
 
     private void setupSettingsList() {
         ListView listView = (ListView) findViewById(R.id.lvAccountSettings);
@@ -77,4 +83,16 @@ public class AccountSettingsActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsStatePagerAdapter);
         mViewPager.setCurrentItem(fragmentNumber);
     }
+
+    private void setupBottomNavigationView() {
+        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
+        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
+        BottonNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+        BottonNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
+        Menu menu = bottomNavigationViewEx.getMenu();
+        android.view.MenuItem menuItem = menu.getItem(ACTIVITY_NUM);
+        menuItem.setChecked(true);
+    }
+
+
 }
