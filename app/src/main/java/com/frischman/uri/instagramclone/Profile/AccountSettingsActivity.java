@@ -18,10 +18,6 @@ import com.frischman.uri.instagramclone.Utils.SectionsStatePagerAdapter;
 
 import java.util.ArrayList;
 
-/**
- * Created by Uri on 2017-07-07.
- */
-
 public class AccountSettingsActivity extends AppCompatActivity {
 
     private ImageView mBackButton;

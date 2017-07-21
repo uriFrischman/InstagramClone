@@ -12,10 +12,6 @@ import com.frischman.uri.instagramclone.R;
 import com.frischman.uri.instagramclone.Utils.BottonNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-/**
- * Created by Uri on 2017-06-05.
- */
-
 public class LikesActivity extends AppCompatActivity {
 
     private static final String TAG = "LikesSearchActivityActivity";

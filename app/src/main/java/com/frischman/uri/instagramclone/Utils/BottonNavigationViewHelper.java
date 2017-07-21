@@ -15,10 +15,6 @@ import com.frischman.uri.instagramclone.Search.SearchActivity;
 import com.frischman.uri.instagramclone.Share.ShareActivity;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-/**
- * Created by Uri on 2017-06-05.
- */
-
 public class BottonNavigationViewHelper {
 
     private static final String TAG = "BottonNavigationViewHel";

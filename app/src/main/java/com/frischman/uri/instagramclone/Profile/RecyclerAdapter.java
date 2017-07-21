@@ -11,10 +11,6 @@ import com.frischman.uri.instagramclone.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Uri on 2017-07-16.
- */
-
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemHolder> {
 
     private ArrayList<MenuItem> mMenuItems;

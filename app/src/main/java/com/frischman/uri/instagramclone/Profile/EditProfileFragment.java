@@ -16,10 +16,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
-/**
- * Created by Uri on 2017-07-07.
- */
-
 public class EditProfileFragment extends Fragment {
 
     private RecyclerView mPublicInformationRecyclerView;

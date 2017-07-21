@@ -1,9 +1,5 @@
 package com.frischman.uri.instagramclone.Profile;
 
-/**
- * Created by Uri on 2017-07-16.
- */
-
 public class MenuItem {
 
     private int image;

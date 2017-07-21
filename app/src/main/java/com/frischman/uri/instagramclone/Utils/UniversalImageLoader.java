@@ -16,10 +16,6 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
-/**
- * Created by Uri on 2017-07-17.
- */
-
 public class UniversalImageLoader {
 
     private static final int defaultImage = R.drawable.ic_android;
