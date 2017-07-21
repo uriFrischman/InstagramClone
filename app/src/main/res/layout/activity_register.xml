@@ -13,13 +13,16 @@
         android:paddingRight="25dp"
         android:layout_centerVertical="true">
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:src="@drawable/horizontal_instagram_logo"
-            android:id="@+id/loginLogoImageView"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="25dp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:textSize="20sp"
+            android:text="@string/register_a_new_account"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textColor="@color/black"/>
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -32,8 +35,23 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="@string/email"
-                android:id="@+id/loginInputEmail"/>
+                android:id="@+id/registerInputEmail"/>
             
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/full_name"
+                android:id="@+id/registerInputFullName"/>
+
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -47,24 +65,16 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="@string/password"
-                android:id="@+id/loginInputPassword"/>
+                android:id="@+id/registerInputPassword"/>
 
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:id="@+id/loginButton"
+            android:text="@string/register"
+            android:id="@+id/registerButton"
             android:background="@drawable/white_rounded_button"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:textColor="@color/link_blue"
-            android:text="@string/no_acount_yet_sign_up_npw"/>
 
     </LinearLayout>
 
@@ -72,14 +82,14 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerInParent="true"
-        android:id="@+id/loginProgressBar"
+        android:id="@+id/registerProgressBar"
         android:visibility="gone"/>
 
     <TextView
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="@string/please_wait"
-        android:layout_below="@id/loginProgressBar"
+        android:layout_below="@id/registerProgressBar"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:visibility="gone"/>

@@ -21,4 +21,7 @@
     <string name="login">Login</string>
     <string name="no_acount_yet_sign_up_npw">No account yet? Sign Up Now!</string>
     <string name="please_wait">Please wait..</string>
+    <string name="register_a_new_account">register a new account</string>
+    <string name="full_name">Full Name</string>
+    <string name="register">Register</string>
 </resources>
