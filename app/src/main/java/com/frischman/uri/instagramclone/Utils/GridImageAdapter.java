@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.frischman.uri.instagramclone.R;
@@ -37,7 +36,7 @@ public class GridImageAdapter extends ArrayAdapter<String> {
     }
 
     private static class ViewHolder {
-        ImageView mImage;
+        SquareImageView mImage;
         ProgressBar mProgressBar;
     }
 
@@ -50,7 +49,7 @@ public class GridImageAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             convertView = mLayoutInflater.inflate(layoutResource, parent, false);
             mViewHolder = new ViewHolder();
-            mViewHolder.mImage = (ImageView) convertView.findViewById(R.id.gridImageView);
+            mViewHolder.mImage = (SquareImageView) convertView.findViewById(R.id.gridImageView);
             mViewHolder.mProgressBar = (ProgressBar) convertView.findViewById(R.id.gridImageProgressbar);
             convertView.setTag(mViewHolder);
         } else {
