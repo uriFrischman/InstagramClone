@@ -10,21 +10,27 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.frischman.uri.instagramclone.R;
 import com.frischman.uri.instagramclone.Utils.BottonNavigationViewHelper;
+import com.frischman.uri.instagramclone.Utils.GridImageAdapter;
+import com.frischman.uri.instagramclone.Utils.UniversalImageLoader;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "ProfileActivity";
     private static final int ACTIVITY_NUM = 4;
+    private static final int NUM_GRID_COLUMNS = 3;
 
     private Context mContext = ProfileActivity.this;
     private ProgressBar mProgressBar;
+    private ImageView mProfilePhoto;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,11 +38,49 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Log.d(TAG, "onCreate: srarts.");
 
-        mProgressBar = (ProgressBar) findViewById(R.id.profileProgressBar);
-        mProgressBar.setVisibility(View.GONE);
-
+        setupActivityWidgets();
         setupBottomNavigationView();
         setupToolbar();
+        setProfileImage();
+        tempSetupGridView();
+    }
+
+    private void tempSetupGridView () {
+        ArrayList<String> imgUrls = new ArrayList<>();
+        imgUrls.add("http://loremflickr.com/320/240/dog");
+        imgUrls.add("http://loremflickr.com/320/240/dog");
+        imgUrls.add("http://loremflickr.com/320/240/dog");
+        imgUrls.add("http://loremflickr.com/320/680/dog");
+        imgUrls.add("http://loremflickr.com/320/240/dog");
+        imgUrls.add("http://loremflickr.com/320/240/dog");
+        imgUrls.add("http://loremflickr.com/320/240/dog");
+        imgUrls.add("http://loremflickr.com/320/240/dog");
+
+        setupImageGridView(imgUrls);
+
+    }
+
+    private void setupImageGridView(ArrayList<String> listOfImages) {
+        GridView gridView = (GridView) findViewById(R.id.grid_view);
+
+        int gridWitdh = getResources().getDisplayMetrics().widthPixels / NUM_GRID_COLUMNS;
+        gridView.setColumnWidth(gridWitdh);
+
+        GridImageAdapter gridImageAdapter = new GridImageAdapter(mContext, R.layout.layout_grid_imageview, "", listOfImages);
+        gridView.setAdapter(gridImageAdapter);
+
+    }
+
+    private void setProfileImage() {
+        String stringUrl = "battleroyalewithcheese.com/wp-content/uploads/2015/06/Homer_simpsonwoohooo.gif";
+        UniversalImageLoader.setImage(stringUrl, mProfilePhoto, mProgressBar,"http://");
+    }
+
+    private void setupActivityWidgets() {
+        mProgressBar = (ProgressBar) findViewById(R.id.profileProgressBar);
+        mProgressBar.setVisibility(View.GONE);
+        mProfilePhoto = (ImageView) findViewById(R.id.profile_image);
+
     }
 
     private void setupToolbar() {
