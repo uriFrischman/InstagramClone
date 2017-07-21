@@ -12,7 +12,6 @@ import android.widget.ImageView;
 
 import com.frischman.uri.instagramclone.R;
 import com.frischman.uri.instagramclone.Utils.UniversalImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
@@ -57,15 +56,17 @@ public class EditProfileFragment extends Fragment {
         mPublicInformationRecyclerView.setAdapter(mPublicRecyclerAdapter);
         mPrivateInformationRecyclerView.setAdapter(mPrivateRecyclerAdapter);
 
-        initImageLoader();
         setProfileImage();
 
-        return view;
-    }
+        ImageView backArrow = (ImageView) view.findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
 
-    private void initImageLoader() {
-        UniversalImageLoader imageLoader = new UniversalImageLoader(getActivity());
-        ImageLoader.getInstance().init(imageLoader.getConfig());
+        return view;
     }
 
     private void setProfileImage() {
