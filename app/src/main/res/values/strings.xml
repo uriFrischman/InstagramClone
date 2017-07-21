@@ -16,4 +16,9 @@
     <string name="logout">Logout</string>
     <string name="change_photo">Change Photo</string>
     <string name="private_information">Private Information</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="no_acount_yet_sign_up_npw">No account yet? Sign Up Now!</string>
+    <string name="please_wait">Please wait..</string>
 </resources>
