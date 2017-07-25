@@ -11,9 +11,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.frischman.uri.instagramclone.Home.HomeActivity;
 import com.frischman.uri.instagramclone.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -53,12 +57,42 @@ public class LoginActivity extends AppCompatActivity {
 
                     mLoginButton = (AppCompatButton) findViewById(R.id.loginButton);
 
+                    mLoginButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                          attemptLogin(mEmail.getText().toString(), mPassword.getText().toString());
+                        }
+                    });
+
                 } else {
-                    Intent intent = new Intent(mContext, HomeActivity.class);
-                    startActivity(intent);
+                    goToHomeActivity();
                 }
             }
         };
+    }
+
+    private void goToHomeActivity() {
+        Intent intent = new Intent(mContext, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    private void attemptLogin(String email, String password) {
+        final boolean successful;
+        if (email == "" || password == "") {
+            Toast.makeText(mContext, "Please enter all fields", Toast.LENGTH_SHORT).show();
+        } else {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(mContext, "Auth successful", Toast.LENGTH_SHORT).show();
+                        goToHomeActivity();
+                    } else {
+                        Toast.makeText(mContext, "Auth failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 
     @Override
