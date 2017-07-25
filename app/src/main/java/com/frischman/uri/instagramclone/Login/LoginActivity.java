@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.frischman.uri.instagramclone.Home.HomeActivity;
 import com.frischman.uri.instagramclone.R;
+import com.frischman.uri.instagramclone.Register.RegisterActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private Context mContext;
     private ProgressBar mProgressBar;
     private EditText mEmail, mPassword;
-    private TextView mPleaseWait;
+    private TextView mPleaseWait, mSignUp;
     private AppCompatButton mLoginButton;
 
     @Override
@@ -57,6 +58,15 @@ public class LoginActivity extends AppCompatActivity {
 
                     mLoginButton = (AppCompatButton) findViewById(R.id.loginButton);
 
+                    mSignUp = (TextView) findViewById(R.id.loginSignUp);
+
+                    mSignUp.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            goToRegisterActivity();
+                        }
+                    });
+
                     mLoginButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -75,6 +85,11 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(mContext, HomeActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void goToRegisterActivity() {
+        Intent intent = new Intent(mContext, RegisterActivity.class);
+        startActivity(intent);
     }
 
     private void attemptLogin(String email, String password) {

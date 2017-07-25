@@ -64,7 +64,8 @@
             android:gravity="center_horizontal"
             android:layout_marginTop="25dp"
             android:textColor="@color/link_blue"
-            android:text="@string/no_acount_yet_sign_up_npw"/>
+            android:text="@string/no_acount_yet_sign_up_npw"
+            android:id="@+id/loginSignUp"/>
 
     </LinearLayout>
 
