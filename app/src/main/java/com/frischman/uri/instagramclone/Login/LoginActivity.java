@@ -74,10 +74,10 @@ public class LoginActivity extends AppCompatActivity {
     private void goToHomeActivity() {
         Intent intent = new Intent(mContext, HomeActivity.class);
         startActivity(intent);
+        finish();
     }
 
     private void attemptLogin(String email, String password) {
-        final boolean successful;
         if (email == "" || password == "") {
             Toast.makeText(mContext, "Please enter all fields", Toast.LENGTH_SHORT).show();
         } else {
