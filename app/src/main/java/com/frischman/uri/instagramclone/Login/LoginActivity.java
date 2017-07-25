@@ -81,14 +81,20 @@ public class LoginActivity extends AppCompatActivity {
         if (email == "" || password == "") {
             Toast.makeText(mContext, "Please enter all fields", Toast.LENGTH_SHORT).show();
         } else {
+            mProgressBar.setVisibility(View.VISIBLE);
+            mPleaseWait.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(mContext, "Auth successful", Toast.LENGTH_SHORT).show();
+                        mProgressBar.setVisibility(View.GONE);
+                        mPleaseWait.setVisibility(View.GONE);
                         goToHomeActivity();
                     } else {
                         Toast.makeText(mContext, "Auth failed", Toast.LENGTH_SHORT).show();
+                        mProgressBar.setVisibility(View.GONE);
+                        mPleaseWait.setVisibility(View.GONE);
                     }
                 }
             });
