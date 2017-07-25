@@ -157,3 +157,4 @@ Temporary Items
 .apdisk
 
 # End of https://www.gitignore.io/api/osx,androidstudio
+/app/google-services.json

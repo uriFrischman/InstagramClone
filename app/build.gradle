@@ -40,4 +40,12 @@ dependencies {
     //Universal Image Loader
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
+    //Firebase Authenticator
+    compile 'com.google.firebase:firebase-auth:10.2.6'
+
+    //Timber Logging
+    compile 'com.jakewharton.timber:timber:4.5.1'
+
 }
+
+apply plugin: 'com.google.gms.google-services'
