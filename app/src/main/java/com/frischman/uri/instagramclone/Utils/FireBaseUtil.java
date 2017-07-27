@@ -54,12 +54,41 @@ public class FireBaseUtil {
                     if (task.isSuccessful()) {
                         mToastUtil.showToastWithMessage("Auth Successful", Toast.LENGTH_SHORT);
                         if (progessBarExists) {
-                            mViewUtil.setViewVisibility(progressBar, View.GONE);//
-                            goToHomeActivity(activity, context, true);
+                            mViewUtil.setViewVisibility(progressBar, View.GONE);
                         }
+                        goToHomeActivity(activity, context, true);
                     } else {
                         mToastUtil.showToastWithMessage(task.getException().getMessage(), Toast.LENGTH_SHORT);
                         if (progessBarExists) {
+                            mViewUtil.setViewVisibility(progressBar, View.GONE);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    public void createUser(String email, String password, String fullName, final ProgressBar progressBar, final Activity activity, final Context context) {
+        if (email == "" || password == "") {
+            mToastUtil.showToastWithMessage("Please enter all fields", Toast.LENGTH_SHORT);
+            //TODO: Implement username confirmation
+        } else {
+            final boolean progressBarExists = (progressBar != null);
+            if (progressBarExists) {
+                mViewUtil.setViewVisibility(progressBar, View.VISIBLE);
+            }
+            mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        mToastUtil.showToastWithMessage("Auth Successful", Toast.LENGTH_SHORT);
+                        if (progressBarExists) {
+                            mViewUtil.setViewVisibility(progressBar, View.GONE);
+                        }
+                        goToHomeActivity(activity, context, true);
+                    } else {
+                        mToastUtil.showToastWithMessage(task.getException().getMessage(), Toast.LENGTH_SHORT);
+                        if (progressBarExists) {
                             mViewUtil.setViewVisibility(progressBar, View.GONE);
                         }
                     }
