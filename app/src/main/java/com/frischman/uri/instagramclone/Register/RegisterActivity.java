@@ -10,8 +10,6 @@ import android.widget.EditText;
 
 import com.frischman.uri.instagramclone.R;
 import com.frischman.uri.instagramclone.Utils.FireBaseUtil;
-import com.frischman.uri.instagramclone.Utils.ToastUtil;
-import com.google.firebase.auth.FirebaseAuth;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -22,19 +20,15 @@ public class RegisterActivity extends AppCompatActivity {
 
     private AppCompatButton mRegisterButton;
 
-    private FirebaseAuth mAuth;
-
     private Context mContext = RegisterActivity.this;
 
     private FireBaseUtil mFireBaseUtil;
-    private ToastUtil mToastUtil;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mToastUtil = new ToastUtil(mContext);
         mFireBaseUtil = new FireBaseUtil(mContext);
 
         mRegisterEmail = (EditText) findViewById(R.id.registerInputEmail);
