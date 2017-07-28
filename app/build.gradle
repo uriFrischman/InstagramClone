@@ -46,6 +46,9 @@ dependencies {
     //Timber Logging
     compile 'com.jakewharton.timber:timber:4.5.1'
 
+    //FirebaseDatabase
+    compile 'com.google.firebase:firebase-database:10.2.6'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
