@@ -10,9 +10,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.frischman.uri.instagramclone.R;
 import com.frischman.uri.instagramclone.Utils.FireBaseUtil;
+import com.frischman.uri.instagramclone.Utils.ToastUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -20,6 +22,7 @@ import static com.frischman.uri.instagramclone.Utils.FireBaseUtil.getFireBaseIns
 import static com.frischman.uri.instagramclone.Utils.FireBaseUtil.logoutUser;
 import static com.frischman.uri.instagramclone.Utils.NavigationUtil.goToHomeActivity;
 import static com.frischman.uri.instagramclone.Utils.NavigationUtil.goToRegisterActivity;
+import static com.frischman.uri.instagramclone.Utils.TextUtil.isTextNullOrEmty;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -33,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private AppCompatButton mLoginButton;
 
     private FireBaseUtil mFireBaseUtil;
+    private ToastUtil mToastUtil;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mContext = LoginActivity.this;
         mFireBaseUtil = new FireBaseUtil(mContext);
+        mToastUtil = new ToastUtil(mContext);
         logoutUser();
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -71,7 +76,12 @@ public class LoginActivity extends AppCompatActivity {
                     mLoginButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            mFireBaseUtil.loginUser(mEmail.getText().toString(), mPassword.getText().toString(), mProgressBar, LoginActivity.this, mContext);
+                            if (isTextNullOrEmty(mEmail.getText().toString()) || isTextNullOrEmty(mPassword.getText().toString())) {
+                                mToastUtil.showToastWithMessage("Please enter all fields", Toast.LENGTH_SHORT);
+                            }
+                            else {
+                                mFireBaseUtil.loginUser(mEmail.getText().toString(), mPassword.getText().toString(), mProgressBar, LoginActivity.this, mContext);
+                            }
                         }
                     });
 

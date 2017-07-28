@@ -7,9 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.frischman.uri.instagramclone.R;
 import com.frischman.uri.instagramclone.Utils.FireBaseUtil;
+import com.frischman.uri.instagramclone.Utils.ToastUtil;
+
+import static com.frischman.uri.instagramclone.Utils.TextUtil.isTextNullOrEmty;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -23,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Context mContext = RegisterActivity.this;
 
     private FireBaseUtil mFireBaseUtil;
+    private ToastUtil mToastUtil;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mFireBaseUtil = new FireBaseUtil(mContext);
+        mToastUtil = new ToastUtil(mContext);
 
         mRegisterEmail = (EditText) findViewById(R.id.registerInputEmail);
         mRegisterFullName = (EditText) findViewById(R.id.registerInputFullName);
@@ -40,7 +46,11 @@ public class RegisterActivity extends AppCompatActivity {
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mFireBaseUtil.createUser(mRegisterEmail.getText().toString(), mRegisterPassword.getText().toString(), mRegisterFullName.getText().toString(), null, RegisterActivity.this, mContext);
+                if (isTextNullOrEmty(mRegisterEmail.getText().toString()) || isTextNullOrEmty(mRegisterFullName.getText().toString()) || isTextNullOrEmty(mRegisterPassword.getText().toString())) {
+                    mToastUtil.showToastWithMessage("Please enter all fields", Toast.LENGTH_SHORT);
+                } else {
+                    mFireBaseUtil.createUser(mRegisterEmail.getText().toString(), mRegisterPassword.getText().toString(), mRegisterFullName.getText().toString(), null, RegisterActivity.this, mContext);
+                }
             }
         });
     }
