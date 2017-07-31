@@ -49,6 +49,11 @@ dependencies {
     //FirebaseDatabase
     compile 'com.google.firebase:firebase-database:10.2.6'
 
+    compile 'com.onesignal:OneSignal:[3.5.8, 3.99.99]'
+
+    compile "com.google.android.gms:play-services-gcm:10.2.6"
+
 }
 
 apply plugin: 'com.google.gms.google-services'
+

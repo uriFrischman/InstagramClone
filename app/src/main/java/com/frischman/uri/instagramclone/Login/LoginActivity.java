@@ -14,9 +14,14 @@ import android.widget.Toast;
 
 import com.frischman.uri.instagramclone.R;
 import com.frischman.uri.instagramclone.Utils.FireBaseUtil;
+import com.frischman.uri.instagramclone.Utils.OneSignalUtil;
 import com.frischman.uri.instagramclone.Utils.ToastUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.onesignal.OSNotification;
+import com.onesignal.OneSignal;
+
+import timber.log.Timber;
 
 import static com.frischman.uri.instagramclone.Utils.FireBaseUtil.getFireBaseInstance;
 import static com.frischman.uri.instagramclone.Utils.FireBaseUtil.logoutUser;
@@ -25,7 +30,7 @@ import static com.frischman.uri.instagramclone.Utils.NavigationUtil.goToRegister
 import static com.frischman.uri.instagramclone.Utils.TextUtil.isTextNullOrEmty;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements OneSignal.NotificationReceivedHandler {
 
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -39,8 +44,22 @@ public class LoginActivity extends AppCompatActivity {
     private ToastUtil mToastUtil;
 
     @Override
+    public void notificationReceived(OSNotification notification) {
+        Timber.w("Hello %s", notification.payload.body);
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .setNotificationReceivedHandler(new OneSignalUtil())
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
+
+
+
 
         mContext = LoginActivity.this;
         mFireBaseUtil = new FireBaseUtil(mContext);
